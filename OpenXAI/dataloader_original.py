@@ -20,17 +20,14 @@ dataverse_ids = {
     }
 }
 
-#AÑADIDO SPAMBASE EN FEATURE_TYPES HACIENDO REFERENCIA A QUE LOS DATOS ESTAN SITUADOS EN 58 COLUMNAS CON NÚMEROS
 feature_types = {
     'adult': ['c'] * 6 + ['d'] * 7, 'german': ['c'] * 8 + ['d'] * 12,
     'compas': ['c', 'd', 'c', 'c', 'd', 'd', 'd'], 'gaussian': ['c'] * 20,
     'gmsc': ['c'] * 10, 'heloc': ['c'] * 23, 'pima': ['c'] * 8,
     'heart': ['d', 'c', 'c', 'd', 'c'] + ['d'] * 4 + ['c'] * 6,
-    'spambase': ['d'] * 58,
 }
-#AÑADIDO SPAMBASE EN LABELS HACIENDO REFERENCIA A QUE LA VARIABLE A PREDECIR ES SPAM
 labels = {'adult': 'income', 'compas': 'risk', 'gaussian': 'target', 'german': 'credit-risk',
-          'gmsc': 'SeriousDlqin2yrs', 'heart': 'TenYearCHD', 'heloc': 'RiskPerformance', 'pima': 'Outcome', 'spambase':'spam'}
+          'gmsc': 'SeriousDlqin2yrs', 'heart': 'TenYearCHD', 'heloc': 'RiskPerformance', 'pima': 'Outcome'}
 
 class TabularDataLoader(data.Dataset):
     def __init__(self, path, filename, label, download=False, scale='minmax'):
@@ -43,7 +40,6 @@ class TabularDataLoader(data.Dataset):
         :param scale: string; 'minmax', 'standard', or 'none'
         :return: tensor with training data
         """
-        
         self.data_name, self.split = filename.split('.')[0].split('-')
         if download or not os.path.isfile(path + filename):
             self.mkdir_p(path)
@@ -54,7 +50,6 @@ class TabularDataLoader(data.Dataset):
         if not os.path.isfile(path + filename):
             raise RuntimeError("Dataset not found. You can use download=True to download it")
 
-        
         self.dataset = pd.read_csv(path + filename)
         self.target = label
 
