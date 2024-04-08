@@ -13,13 +13,13 @@ import os
 import glob
 import time
 import copy
+from tensorflow import keras
 from keras.callbacks import ModelCheckpoint
 from keras.layers import Dense, Input, Flatten, Add, Multiply, Lambda
-from keras.layers.normalization import BatchNormalization
+from keras.layers import BatchNormalization,Layer
 from keras.models import Model, Sequential
 from keras import regularizers
 from keras import backend as K
-from keras.engine.topology import Layer
 
 # from make_data import generate_data
 import json

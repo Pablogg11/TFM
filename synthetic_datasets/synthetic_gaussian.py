@@ -85,7 +85,7 @@ class MultivariateGaussian:
             for i, s in enumerate(powerset(range(dim))):
                 s = list(s)
                 self.mask[i, s] = 1
-                h = str(self.mask[i, :].astype(np.int))
+                h = str(self.mask[i, :].astype(int))
                 self.mask_dict[h] = i
             # print(self.mask)
         if self.precompute:
@@ -239,7 +239,7 @@ class GaussianLinearRegression(CustomDataset):
         if mask is None:
             mask = self.default_mask
         else:
-            mask = mask.astype(np.int)
+            mask = mask.astype(int)
 
         if x is None:
             x = self.default_mask
@@ -303,7 +303,7 @@ class GaussianPiecewiseConstantRegression(CustomDataset):
                     [-2, -1, 1, 2],
                 )
             elif i == 2:
-                p = (2 * np.cos(x * np.pi)).astype(np.int)
+                p = (2 * np.cos(x * np.pi)).astype(int)
                 p[np.where(p == 0)] = 1  # with small probability cos(x) == 0
 
             p = np.expand_dims(p, axis=1)
@@ -322,7 +322,7 @@ class GaussianPiecewiseConstantRegression(CustomDataset):
         if mask is None:
             mask = self.default_mask
         else:
-            mask = mask.astype(np.int)
+            mask = mask.astype(int)
         if x is None:
             x = self.default_mask
 
@@ -406,7 +406,7 @@ class GaussianNonlinearAdditiveRegression(CustomDataset):
         if mask is None:
             mask = self.default_mask
         else:
-            mask = mask.astype(np.int)
+            mask = mask.astype(int)
 
         if x is None:
             x = self.default_mask
@@ -469,7 +469,7 @@ class GaussianLinearBinary(CustomDataset):
         if mask is None:
             mask = self.default_mask
         else:
-            mask = mask.astype(np.int)
+            mask = mask.astype(int)
 
         if x is None:
             x = self.default_mask
@@ -532,7 +532,7 @@ class GaussianPiecewiseConstantBinary(CustomDataset):
                     [-2, -1, 1, 2],
                 )
             elif i == 2:
-                p = (2 * np.cos(x * np.pi)).astype(np.int)
+                p = (2 * np.cos(x * np.pi)).astype(int)
                 p[np.where(p == 0)] = 1  # with small probability cos(x) == 0
 
             p = np.expand_dims(p, axis=1)
@@ -552,7 +552,7 @@ class GaussianPiecewiseConstantBinary(CustomDataset):
         if mask is None:
             mask = self.default_mask
         else:
-            mask = mask.astype(np.int)
+            mask = mask.astype(int)
         if x is None:
             x = self.default_mask
 
@@ -636,7 +636,7 @@ class GaussianNonlinearAdditiveBinary(CustomDataset):
         if mask is None:
             mask = self.default_mask
         else:
-            mask = mask.astype(np.int)
+            mask = mask.astype(int)
 
         if x is None:
             x = self.default_mask

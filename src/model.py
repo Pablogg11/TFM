@@ -1,3 +1,4 @@
+from sklearn.ensemble import RandomForestClassifier
 from sklearn.linear_model import LinearRegression
 from sklearn.neural_network import MLPRegressor, MLPClassifier
 from sklearn.tree import DecisionTreeRegressor, DecisionTreeClassifier
@@ -14,6 +15,7 @@ valid_models = {
         "lr": LinearRegression,
         "mlp": MLPClassifier,
         "dtree": DecisionTreeClassifier,
+        "rfc": RandomForestClassifier
     },
 }
 
