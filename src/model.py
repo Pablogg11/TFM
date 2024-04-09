@@ -1,7 +1,9 @@
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.linear_model import LinearRegression
 from sklearn.neural_network import MLPRegressor, MLPClassifier
+from sklearn.svm import SVC, SVR
 from sklearn.tree import DecisionTreeRegressor, DecisionTreeClassifier
+import xgboost
 
 valid_models = {
     "regression": {
@@ -9,13 +11,17 @@ valid_models = {
         "lr": LinearRegression,
         "mlp": MLPRegressor,
         "dtree": DecisionTreeRegressor, 
+        "xgb": xgboost.XGBRegressor,
+        "svm": SVR
     },
     "classification": {
         "dataset": lambda : "dataset",
         "lr": LinearRegression,
         "mlp": MLPClassifier,
         "dtree": DecisionTreeClassifier,
-        "rfc": RandomForestClassifier
+        "rfc": RandomForestClassifier,
+        "xgb": xgboost.XGBClassifier,
+        "svm": SVC
     },
 }
 
