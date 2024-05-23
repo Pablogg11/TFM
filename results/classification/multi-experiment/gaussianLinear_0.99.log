@@ -1,0 +1,49 @@
+{
+    "dataset": "gaussianLinear",
+    "dataset_kwargs": {
+        "mu": "np.zeros(5)",
+        "dim": 5,
+        "rho": 0.99,
+        "weight": "np.array([4, 3, 2, 1, 0])",
+        "noise": 0.01,
+        "num_train_samples": 1000,
+        "num_val_samples": 100
+    },
+    "models": {
+        "rfc": {
+            "random": {
+                "roar_faithfulness": -0.004499012890487503,
+                "roar_monotonicity": 0.8825,
+                "faithfulness": 0.010751463830654413,
+                "monotonicity": 0.6975,
+                "shapley": 0.9854356535371086,
+                "shapley_corr": -0.02030821221438276,
+                "infidelity": 0.16611445880806466
+            },
+            "brutekernelshap": {
+                "roar_faithfulness": 0.02345655770195152,
+                "roar_monotonicity": 0.8875,
+                "faithfulness": 0.07396234154248135,
+                "monotonicity": 0.7125,
+                "shapley": 0.0039344763077806795,
+                "shapley_corr": 0.2540629601257159,
+                "infidelity": 0.4089109622899251
+            },
+            "kernelshap": {
+                "roar_faithfulness": 0.01567944374269825,
+                "roar_monotonicity": 0.875,
+                "faithfulness": 0.09104012190947822,
+                "monotonicity": 0.6925,
+                "shapley": 0.013499327314263088,
+                "shapley_corr": 0.25406295962069664,
+                "infidelity": 0.06489972194156259
+            }
+        }
+    },
+    "model_perfs": {
+        "rfc": [
+            "1.00",
+            "0.99"
+        ]
+    }
+}

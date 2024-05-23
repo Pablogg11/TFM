@@ -11,6 +11,8 @@ valid_explainers = {
     "maple": custom_explainers.Maple,
     "l2x": custom_explainers.L2X,
     "axom": custom_explainers.Axom,
+    "breakdown": custom_explainers.Breakdown,
+    "ibreakdown": custom_explainers.IBreakdown,
 }
 
 

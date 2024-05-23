@@ -24,11 +24,11 @@
             "expl_kwargs": {}
         },
         {
-             "name": "shap",
-             "expl_kwargs": {}
+            "name": "brutekernelshap",
+            "expl_kwargs": {}
         },
         {
-            "name" : "axom",
+            "name": "kernelshap",
             "expl_kwargs": {}
         }
     ],
