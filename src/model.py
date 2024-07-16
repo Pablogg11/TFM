@@ -1,7 +1,7 @@
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.linear_model import LinearRegression
 from sklearn.neural_network import MLPRegressor, MLPClassifier
-from sklearn.svm import SVC, SVR
+from sklearn.svm import SVC, SVR, LinearSVC
 from sklearn.tree import DecisionTreeRegressor, DecisionTreeClassifier
 import xgboost
 
@@ -21,7 +21,7 @@ valid_models = {
         "dtree": DecisionTreeClassifier,
         "rfc": RandomForestClassifier,
         "xgb": xgboost.XGBClassifier,
-        "svm": SVC
+        "svm": LinearSVC
     },
 }
 
@@ -35,6 +35,8 @@ class Model:
         self.name = name
         self.mode = mode
         self.model = valid_models[mode][name](**kwargs)
+        if self.model == "svm":
+            self.model.set_params(n_estimators=50)
         if self.model == "dataset":
             return
         self.predict = self.model.predict

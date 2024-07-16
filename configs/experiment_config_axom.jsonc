@@ -1,6 +1,6 @@
 {
     "dataset": {
-        "name": "gaussianPiecewiseConstant",  // gaussianNonLinearAdditive, gaussianLinear, gaussianPiecewiseConstant
+        "name": "gaussianNonLinearAdditive",  // gaussianNonLinearAdditive, gaussianLinear, gaussianPiecewiseConstant
         "data_kwargs": {
             "mu": "np.zeros(5)",
             // "sigma": "np.identity(4)",
@@ -19,19 +19,35 @@
     }
     ],
     "explainers": [
+        // {
+        //     "name": "random",
+        //     "expl_kwargs": {}
+        // }
         {
-            "name": "random",
-            "expl_kwargs": {}
-        },
-        {
-            "name": "brutekernelshap",
+            "name": "axom",
             "expl_kwargs": {}
         },
         {
             "name": "kernelshap",
             "expl_kwargs": {}
+        },
+        {
+            "name": "lime",
+            "expl_kwargs": {}
+        },
+        {
+            "name": "maple",
+            "expl_kwargs": {}
+        },
+        {
+            "name": "l2x",
+            "expl_kwargs": {}
+        },
+        {
+            "name": "breakdown",
+            "expl_kwargs": {}
         }
     ],
-    "metrics": ["roar_faithfulness", "roar_monotonicity", "faithfulness", "monotonicity", "shapley", "shapley_corr", "infidelity"],
+    "metrics": ["roar", "faithfulness", "monotonicity", "shapley", "infidelity"],
     "conditional": "observational"
 }

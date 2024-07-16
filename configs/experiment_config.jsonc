@@ -1,9 +1,8 @@
 {
     "dataset": {
-        "name": "gaussianPiecewiseConstant",  // gaussianNonLinearAdditive, gaussianLinear, gaussianPiecewiseConstant
+        "name": "gaussianNonLinearAdditive",  // gaussianNonLinearAdditive, gaussianLinear, gaussianPiecewiseConstant
         "data_kwargs": {
             "mu": "np.zeros(5)",
-            // "sigma": "np.identity(4)",
             "dim": 5,
             "rho": 0.5,
             "weight": "np.array([4, 3, 2, 1, 0])",
@@ -12,8 +11,9 @@
             "num_val_samples": 100
         }
     }, 
-    "models": [{
-        "name": "lr",
+    "models": [
+    {
+        "name": "mlp",
         "model_kwargs": {}
     },
     {
@@ -21,53 +21,56 @@
         "model_kwargs": {}
     },
     {
-        "name": "mlp",
+        "name": "xgb",
+        "model_kwargs": {}
+    },
+    {
+        "name": "svm",
+        "model_kwargs": {}
+    },
+    {
+        "name": "rfc",
         "model_kwargs": {}
     }
     ],
     "explainers": [
         {
-            "name": "random",
-            "expl_kwargs": {}
-        },
-        {
-            "name": "breakdown",
-            "expl_kwargs": {}
-        },
-        {
             "name": "shap",
             "expl_kwargs": {}
-        },
-        {
-            "name": "shapr",
-            "expl_kwargs": {
-                "sigma": 0.4
-            }
         },
         {
             "name": "brutekernelshap",
             "expl_kwargs": {}
         },
         {
-            "name": "maple",
-            "expl_kwargs": {
-                "n_estimators": 200,
-                "min_samples_leaf": 10
-            }
+            "name": "kernelshap",
+            "expl_kwargs": {}
         },
         {
             "name": "lime",
-            "expl_kwargs": {
-                "kernel_width": 0.5
-            }
+            "expl_kwargs": {}
+        },
+        {
+            "name": "maple",
+            "expl_kwargs": {}
         },
         {
             "name": "l2x",
-            "expl_kwargs": {
-                "batch_size": 1024
-            }
+            "expl_kwargs": {}
+        },
+        {
+            "name": "breakdown",
+            "expl_kwargs": {}
         }
+        // {
+        //     "name": "ibreakdown",
+        //     "expl_kwargs": {}
+        // }
+        // {
+        //     "name": "random",
+        //     "expl_kwargs": {}
+        // }
     ],
-    "metrics": ["roar_faithfulness", "roar_monotonicity", "faithfulness", "monotonicity", "shapley", "shapley_corr", "infidelity"],
+    "metrics": ["roar","faithfulness", "monotonicity", "shapley", "infidelity"],
     "conditional": "observational" // observational, interventional
 }

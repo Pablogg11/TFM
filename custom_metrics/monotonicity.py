@@ -53,12 +53,15 @@ class Monotonicity:
                     y_preds_new[j+1] = self.trained_model.predict([x_cond])[0]
 
             deltas = np.abs(np.diff(y_preds_new))
+            print("deltas")
+            print(deltas)
             if self.version == 'dec':
                 deltas = deltas[::-1]
             if avg:
                 monotonicity = sum(np.diff(deltas) >= 0) / (num_features-1)
             else:
                 monotonicity = int(np.all(np.diff(deltas) >= 0))
-
+            print("mono")
+            print(monotonicity)
             monotonicities.append(monotonicity)
         return np.mean(monotonicities)

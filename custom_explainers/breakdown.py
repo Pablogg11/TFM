@@ -29,7 +29,7 @@ class IBreakdown:
         test_set = test_set.to_numpy()
         att = []
         for x in test_set:
-            bd = self.ex.predict_parts(new_observation = x, type = "break_down_interactions")
+            bd = self.ex.predict_parts(new_observation = x, type = "break_down_interactions", interaction_preference=0)
             result = bd.result[["variable_name","contribution"]].values.tolist()
             result = result[1:-1]
             aux = []
@@ -47,20 +47,19 @@ class IBreakdown:
             
         return np.array(att)
     
-    # class IBreakdown:
-    #     def __init__(self, model, data):
-    #         self.model = model
-    #         self.ex = dx.Explainer(self.model, data[0], data[1].ravel())
+# class IBreakdown:
+#     def __init__(self, model, data):
+#         self.model = model
+#         self.ex = dx.Explainer(self.model, data[0], data[1].ravel())
 
-    #     def explain(self,  test_set):
-    #         test_set = test_set.to_numpy()
-    #         att = []
-    #         for x in test_set:
-    #             bd = self.ex.predict_parts(new_observation = x, type = "break_down_interactions", interaction_preference = 0)
-    #             result = bd.result.sort_values(by='variable_name')
-    #             contribution = result.contribution.to_numpy()
-    #             contribution = contribution[1:-1]
-    #             att.append(contribution)
+#     def explain(self,  test_set):
+#         test_set = test_set.to_numpy()
+#         att = []
+#         for x in test_set:
+#             bd = self.ex.predict_parts(new_observation = x, type = "break_down_interactions", interaction_preference = 0)
+#             result = bd.result.sort_values(by='variable_name')
+#             contribution = result.contribution.to_numpy()
+#             contribution = contribution[1:-1]
+#             att.append(contribution)
                 
-    #         print(np.array(att))
-    #         return np.array(att)
+#         return np.array(att)
